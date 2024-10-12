@@ -1,4 +1,4 @@
-name: indigo_app
+name: THAIHERB
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.3.2 <4.0.0'
+  sdk: '>=3.2.2 <4.0.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -31,13 +31,14 @@ dependencies:
   flutter:
     sdk: flutter
 
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.6
-  http: ^1.2.1
-  image_picker: ^1.0.7
-  
+  cupertino_icons: ^1.0.2
+  image_picker: ^0.8.9
+  flutter_tflite: ^1.0.1
+  tflite_flutter: ^0.11.0
+  image: ^3.0.1
+
 
 dev_dependencies:
   flutter_test:
@@ -48,22 +49,19 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^3.0.0
+  flutter_lints: ^2.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
 flutter:
-  assets:
-    - lib/img003.jpg
-    - lib/img005.jpg
-    - lib/img11.jpg
-    - lib/img22.jpg
-    - lib/img33.png
-    - lib/img44.png
-    - lib/img0000.png
-    - lib/img001.jpg
+  fonts:
+    - family: 'MN Namphrik Long Ruea'
+      fonts:
+        - asset: assets/fonts/MN Namphrik Long Ruea.ttf
+        - asset: assets/fonts/MN Namphrik Long Ruea Italic.ttf
+          style: italic
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
@@ -71,8 +69,18 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+      - assets/Models.tflite
+      - assets/Labels.txt
+      - lib/img01.png
+      - lib/img02.png
+      - lib/img03.png
+      - lib/img04.png
+      - lib/img05.png
+      - lib/img06.png
+      - lib/img08.png
+      - lib/img09.png
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
