@@ -55,6 +55,14 @@ class HomeScreen extends StatelessWidget {
                   width: 150,
                   height: 50,
                   child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.green[700], // เปลี่ยนสีปุ่ม
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 30, vertical: 15), // ขยายปุ่ม
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10), // มุมโค้งมน
+                      ),
+                    ),
                     onPressed: () {
                       Navigator.push(
                         context,
@@ -65,8 +73,9 @@ class HomeScreen extends StatelessWidget {
                     child: const Text(
                       'Open',
                       style: TextStyle(
-                        fontFamily: 'MN Namphrik Long Ruea', // ใช้ฟอนต์ที่เพิ่ม
-                        fontSize: 16,
+                        fontFamily: 'MN Namphrik Long Ruea',
+                        fontSize: 18, // เพิ่มขนาดฟอนต์
+                        color: Colors.white, // ทำให้สีข้อความดูโดดเด่น
                       ),
                     ),
                   ),
@@ -260,38 +269,31 @@ class _ResultScreenState extends State<ResultScreen> {
                           children: [
                             Text(
                               "$label\nความแม่นยำ: ${confidence.toStringAsFixed(2)}%",
-                              style: const TextStyle(
-                                  fontFamily: 'MN Namphrik Long Ruea',
-                                  fontSize: 18),
+                              style: TextStyle(
+                                fontFamily: 'MN Namphrik Long Ruea',
+                                fontSize: 18,
+                                color: Colors.green[900],
+                              ),
                               textAlign: TextAlign.center,
                             ),
-                            const SizedBox(height: 10),
+                            const SizedBox(height: 15),
                             Card(
-                              elevation: 5,
+                              elevation: 6,
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15),
+                                borderRadius: BorderRadius.circular(12),
                               ),
-                              color: Colors.green[50], // สีพื้นหลัง Card
-                              margin: const EdgeInsets.all(16),
+                              color: Colors.lightGreen[50],
+                              margin:
+                                  const EdgeInsets.symmetric(horizontal: 16),
                               child: Padding(
-                                padding: const EdgeInsets.all(16.0),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    const Text(
-                                      'รายละเอียดสมุนไพร',
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    const SizedBox(height: 10),
-                                    Text(
-                                      description,
-                                      style: const TextStyle(
-                                        fontSize: 16,
-                                      ),
-                                    ),
-                                  ],
+                                padding: const EdgeInsets.all(12),
+                                child: Text(
+                                  description,
+                                  style: TextStyle(
+                                    fontFamily: 'MN Namphrik Long Ruea',
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                             ),
@@ -300,9 +302,10 @@ class _ResultScreenState extends State<ResultScreen> {
                       : const Text(
                           "ไม่สามารถจำแนกได้",
                           style: TextStyle(
-                              fontFamily: 'MN Namphrik Long Ruea',
-                              fontSize: 18,
-                              color: Colors.red),
+                            fontFamily: 'MN Namphrik Long Ruea',
+                            fontSize: 18,
+                            color: Colors.red,
+                          ),
                         )
                   : const CircularProgressIndicator(),
             ],
